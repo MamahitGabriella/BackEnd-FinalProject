@@ -10,10 +10,10 @@ const Routes = () => {
         <Router>
             <Switch>
             <Route exact path="/" >
-                    <Dashboard />
+                    <Login title="Untuk mengakses web silahkan login terlebih dahulu" />
                 </Route>
-            <Route path="/login" > 
-                    <Login title="Welcome" />
+            <Route path="/dashboard" > 
+                    <Dashboard />
                 </Route>
                 <Route path="/about" >
                     <About />

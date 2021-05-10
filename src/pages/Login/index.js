@@ -3,7 +3,7 @@ import firebase from '../../config/Firebase'
 import {useHistory, NavLink} from 'react-router-dom'
 
 const Login = ({title, angka}) =>{
-    const [welcomeText, setWelcomeText] = useState("Selamat Datang di Ekskul");
+    const [welcomeText, setWelcomeText] = useState("Welcome !!!");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
