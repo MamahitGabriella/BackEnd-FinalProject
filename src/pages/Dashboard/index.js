@@ -74,9 +74,9 @@ const Dashboard = () => {
     }
 
     return (
-        <div className="container mt-5">
+        <div className="container mt-0">
+            <div class="container">
             <NavBar />
-            <h3>Dashboard</h3>
             <div className="col-6">
             <p>First Name</p>
             <input className="form-control" placeholder="Type your first name" value={firstName} onChange={(e)=>setFirstName(e.target.value)} />
@@ -94,7 +94,9 @@ const Dashboard = () => {
                 button === 'Update' && (<button className={"btn btn-secondary"} onClick={resetForm} >Cancel Update</button>)
             }
             </div>
+            </div>
             <hr />
+            <h3>List Name</h3>
             <table class="table table-striped table-hover">
             <thead>
                 <tr>
