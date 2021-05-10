@@ -39,7 +39,7 @@ const Login = ({title, angka}) =>{
             <br />
             <br />
             <button type="button" onClick={handleSubmit} className="btn btn-primary" >
-                Submit
+                Login
                 </button>
             <br />
             <br />

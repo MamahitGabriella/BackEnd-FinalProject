@@ -51,7 +51,7 @@ const Register  = () => {
             <input className="form-control mt-4" type="Type the password" placeholder="Masukkan password" value={password} onChange={(e) => setPassword(e.target.value)} /> 
             <br />
             <br />
-            <button type="button" onClick={onSubmit} className="btn btn-primary" >Register New User</button>
+            <button type="button" onClick={onSubmit} className="btn btn-primary" >Register</button>
             <br />
             <br />
             Have account?
