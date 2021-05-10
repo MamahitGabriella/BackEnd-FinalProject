@@ -1,45 +1,53 @@
-import React, { useState } from "react";
-import NavBar from '../../component/Molecules/NavBar';
+import React, { useState, useEffect} from 'react'
+import firebase from '../../config/Firebase'
+import {useHistory, NavLink} from 'react-router-dom'
 
-const Login = ({ }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+const Login = ({title, angka}) =>{
+    const [welcomeText, setWelcomeText] = useState("Selamat Datang di Ekskul");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-  const handleSubmit = () => {
-    const data = {
-      email: email,
-      password: password,
-    };
-    console.log(data);
-  };
+    let history = useHistory();
 
-  return (
-    //JSX
-    <div className="container mt-5">
-      <NavBar />
-      <h3 className="mt-3">Login</h3>
-      <p className="form-label mt-3">Email</p>
-      <input
-        className="form-control"
-        placeholder="Masukan email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <p className="form-label mt-3">Password</p>
-      <input
-        className="form-control"
-        placeholder="Masukan password"
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <br />
-      <br />
-      <button type="button" onClick={handleSubmit} className="btn btn-primary">
-        Submit
-      </button>
-    </div>
-  );
-};
+    useEffect (() => {
+        console.log("Component did mount");
+    }, []);
+
+    useEffect (() =>{
+        console.log("Component did update");
+    }, [welcomeText, email, password])
+
+    const handleSubmit = () => {
+        setWelcomeText("Selamat Datang");
+        const data = {
+            email : email, 
+            password : password,
+        }
+        // console.log(data);
+        firebase.auth().signInWithEmailAndPassword(email, password).then(res => history.push("/dashboard")).catch(error => console.log("Error", error));
+    }
+
+    return (
+        //JSK
+        <div className="container mt-5">
+            <h3>{welcomeText}</h3>
+            <h5>{title}{angka}</h5>
+            <p className="form-label mt-5">Email</p>
+            <input className="form-control" placeholder="Type your email" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <p className="form-label mt-3">Password</p>
+            <input className="form-control" type="password" placeholder="Type passwords" value={password} onChange={(e) => setPassword(e.target.value)} /> 
+            <br />
+            <br />
+            <button type="button" onClick={handleSubmit} className="btn btn-primary" >
+                Submit
+                </button>
+            <br />
+            
+            <NavLink activeClassName="active" to="/register" >
+            Create account
+            </NavLink>
+        </div>
+    )
+}
 
 export default Login;

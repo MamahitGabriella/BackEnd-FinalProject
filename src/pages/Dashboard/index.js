@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import NavBar from '../../components/molecules/NavBar';
 import firebase from '../../config/Firebase'
+import NavBar from '../../component/Molecules/NavBar'
 
 const Dashboard = () => {
 
@@ -89,8 +89,6 @@ const Dashboard = () => {
             <p>Ekstrakurikuler</p>
             <input className="form-control" placeholder="Type the name Exstracurrikular" value={ekstrakurikuler} onChange={(e)=>setEkstrakurikuler(e.target.value)} />
             <br />
-            <br />
-
             <button className="btn btn-primary" onClick={onSubmit} >{button}</button>
             {
                 button === 'Update' && (<button className={"btn btn-secondary"} onClick={resetForm} >Cancel Update</button>)
@@ -100,7 +98,7 @@ const Dashboard = () => {
             <table class="table table-striped table-hover">
             <thead>
                 <tr>
-                <th>First Name</th>
+                    <th>First Name</th>
                     <th>Last Name</th>
                     <th>Major</th>
                     <th>Class</th>
