@@ -18,7 +18,7 @@ const Login = ({title, angka}) =>{
     }, [welcomeText, email, password])
 
     const handleSubmit = () => {
-        setWelcomeText("Selamat Datang");
+        setWelcomeText("Welcome!!!");
         const data = {
             email : email, 
             password : password,
@@ -42,7 +42,8 @@ const Login = ({title, angka}) =>{
                 Submit
                 </button>
             <br />
-            
+            <br />
+            don't have account?
             <NavLink activeClassName="active" to="/register" >
             Create account
             </NavLink>
